@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; 
+import Register from './component/Pages/Register';
+import Login from './component/Pages/Login';
+import Reset from './component/Pages/Reset'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Home from './component/Pages/Home';
+import axios from 'axios';
+
+axios.defaults.withCredentials = true
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <ToastContainer/>
+    <BrowserRouter>
+    <Routes> 
+    <Route path='/Home' element={<Home/>}/>
+    <Route path='/register' element={<Register/>}/>
+    <Route path='/login' element={<Login/>}/>
+    <Route path='/reset' element={<Reset/>}/>
+    </Routes>
+    </BrowserRouter>
+    </>
   );
 }
 
